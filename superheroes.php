@@ -63,10 +63,37 @@ $superheroes = [
   ], 
 ];
 
-?>
+//read the query from the url, if its missing, use an empty string
+$query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+if ($query === '') {
+    //if there is no search term, print every hero
+    echo "<ul>";
+    foreach ($superheroes as $superhero){
+        echo "<li>" . htmlspecialchars($superhero['alias'], ENT_QUOTES, 'UTF-8') . "</li>";
+    }
+    echo "</ul>";
+}
+else {
+    //look for a hero whose name or alias matches
+    $found = null;
+    foreach ($superheroes as $superhero){
+        //ignore upper or lowercase and returns 0 when equal
+        if (strcasecmp($superhero['name'], $query) === 0 || strcasecmp($superhero['alias'], $query) === 0){
+            $found = $superhero;
+            break;
+        }
+    }
+
+    if ($found) {
+        //alias in h3
+        echo "<h3>" . htmlspecialchars($found['alias'], ENT_QUOTES, 'UTF-8') . "</h3>";
+        echo "<h4>" . htmlspecialchars($found['name'], ENT_QUOTES, 'UTF-8') . "</h4>";
+        echo "<p>" . htmlspecialchars($found['biography'], ENT_QUOTES, 'UTF-8') . "</p>";
+    }
+    else {
+        //error message if there is no match
+        echo "<p class=\"error\">Superhero not found</p>";
+    }
+}
+    

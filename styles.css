@@ -1,9 +1,75 @@
+/*page defaults*/
 body {
     font-family: Arial, sans-serif;
-    margin: 2rem;
+    margin: 0;
+    background: #eeeeee;
+    color: #222;
 }
 
+/*blue banner*/
+header{
+    background: #4f8ab8;
+    padding: 1rem;
+    text-align: center;
+}
+
+/*white uppercase title inside the banner*/
+header h1{
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/*centers the content*/
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.search-row{
+    display: flex;
+    gap: 0.5rem;
+}
+
+#search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+/*red search button*/
 button {
     padding: 0.4rem 1rem;
+    background: #c62828;
+    color: #fff;
+    border: none;
+    font-weight: bold;
     cursor: pointer;
+}
+
+/*result heading with a line underneath*/
+h2{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/*Styles for a single hero*/
+#result h3{
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+#result h4{
+    margin-top: 0.2rem;
+    
+}
+
+/*error message if the superhero is not found*/
+.error{
+    color: #c62828;
+    font-weight: bold;
+    text-transform: uppercase;
 }

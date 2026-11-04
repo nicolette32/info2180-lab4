@@ -2,17 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name = "viewport" content="width=device-width", initial-scale="1.0">
+    <!-- Makes the page scale properly on phones-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Avengers Character Search</title>
+    <!-- loads the stylesheet-->
     <link rel = "stylesheet" href="styles.css">
+
+    <!-- Load the JS and waits until the page is parsed-->
     <script src="app.js" defer></script>
 </head>
 <body>
-    <h1> Avengers Character Search</h1>
-    <button id="search-btn">Search</button>
+    <header>
+        <h1> Avengers Character Search</h1>
+    </header>
+
+    <main>
+        <label for="search-input">Search by Full Name or Alias</label>
+        <!-- input and button sit side by side-->
+        <div class="search-row">
+            <input type="text" id="search-input" placeholder="e.g. Captain America or Steve Rogers">
+            <button id="search-btn">Search</button>
+        </div>
+    <h2>Result</h2>
+    <!-- app.js put the response from superheroes in here-->
+    <div id="result"></div>
+    </main>
+
 
 </body>
-
-
 
 </html>
